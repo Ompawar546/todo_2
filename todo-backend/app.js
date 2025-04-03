@@ -5,7 +5,12 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://todo-2-hdy3.onrender.com', // Allow only your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type']
+}));
+
 
 app.use(express.json()); // convert req body into json
 
